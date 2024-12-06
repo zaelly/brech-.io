@@ -1,68 +1,60 @@
-import { useEffect, useState } from 'react'
-import '/src/assets/css/favorits.css'
-import Button from 'react-bootstrap/Button'
+import { useEffect, useState } from "react";
+import "/src/assets/css/favorits.css";
+import Button from "react-bootstrap/Button";
 
 const Favoritos = () => {
-
-  const [favoritos, setFavoritos] = useState([]);
-  const [deleteProd, setDeleteProd] = useState(
+  const [favoritos, setFavoritos] = useState([
     { id: 1, name: "Shampoo", price: 15.99, img: "/src/assets/1c6ec7684014f75f0abd3c04ef5b3fe4b2660c6e2ef2fa0017ff44cdf2d52d28.png" },
-    { id: 2, name: "Condicionador", price: 18.99, img: "/src/assets/2c6ec7684014f75f0abd3c04ef5b3fe4b2660c6e2ef2fa0017ff44cdf2d52d29.png" },
-  );
+    { id: 2, name: "Condicionador", price: 18.99, img: "/src/assets/b75fb1ff0cb4d6a15b1c351bee6413ba3704a0512dff98faf739638d85fe3983.png" },
+  ]); // Lista inicial de produtos
+  const [calcTotal, setCalcTotal] = useState(0);
 
-  function deleteProduct (id){
-    setDeleteProd((prevFavorites) => prevFavorites.filter((item) => item.id !== id))
-  }
-  
+  // Função para remover produto
+  const deleteProduct = (id) => {
+    setFavoritos((prevFavoritos) => prevFavoritos.filter((item) => item.id !== id));
+  };
 
-  useEffect(()=>{
-    const favoritosStorage = localStorage.getItem('favoritos')
-    if(favoritosStorage && JSON.parse(favoritosStorage).length > 0){
-      setFavoritos(JSON.parse(favoritosStorage))
-    }
-  })
+  // Calcula o total
+  useEffect(() => {
+    const total = favoritos.reduce((sum, item) => sum + item.price, 0);
+    setCalcTotal(total);
+  }, [favoritos]); // Recalcula sempre que "favoritos" mudar
 
   return (
     <div>
       <div className="container-corpo">
         <div className="container-fav">
-          <h2>Produtos Favoritados <span><i className="fa-solid fa-heart"></i></span></h2>
+          <h2>Produtos Favoritados</h2>
           <div className="container-itens-fav">
-            {favoritos.map((item, index) => {
-              return (
-                <div key={index} className="item-fav">
-                  <img src={item.imagem} alt={item.nome} />
-                  <p>{item.nome}</p>
-                  <span>{item.preco}</span>
-                  <button>Adicionar à lista
-                    <span>
-                      <i className="fa-solid fa-plus"></i>
-                    </span>
-                  </button>
-                  <button>Excluir 
-                    <span>
-                      <i className="fa-solid fa-trash"></i>
-                    </span>
-                  </button>
-                </div>
-              )
-            })}
-              <div id="item_1" className="item-fav">
+            {favoritos.map((item) => (
+              <div key={item.id} className="item-fav">
                 <div className="item-img">
-                  <img src="/src/assets/1c6ec7684014f75f0abd3c04ef5b3fe4b2660c6e2ef2fa0017ff44cdf2d52d28.png" alt="" />
+                  <img src={item.img} alt={item.name} />
                 </div>
                 <div className="item-details">
-                  <p>Shampoo</p>
-                  <span>15,99</span>
-                  <Button variant="link" onClick={()=>{}}>Adicionar à lista</Button>
-                  <Button variant="link" onClick={deleteProduct}>Excluir</Button>
+                  <p>{item.name}</p>
+                  <span>{item.price.toFixed(2)}</span>
+                  <div className="btns-group">
+                    <Button variant="link" className="buttonAdd">
+                      Adicionar à lista
+                    </Button>
+                    <Button variant="link" className="buttonIconFav"  onClick={() => deleteProduct(item.id)}>
+                      <i className="fa-solid fa-heart"></i>
+                    </Button>
+                </div>
                 </div>
               </div>
+            ))}
           </div>
         </div>
       </div>
+      <div className="priceTotal">
+        <p>
+          Preço Total: <span>R${calcTotal.toFixed(2)}</span>
+        </p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Favoritos
+export default Favoritos;

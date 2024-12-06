@@ -18,7 +18,7 @@ function App() {
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   )
 }

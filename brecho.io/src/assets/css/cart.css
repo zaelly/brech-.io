@@ -1,0 +1,118 @@
+.container-cart{
+    color: black;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-cart h2{
+    font-size: 1.5rem;
+    margin: 3rem 0 2.5rem 0;
+    color: black;
+    text-align: center;
+}
+
+.container-itens-cart{
+    margin-top: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    gap: 1rem .6rem;
+    flex-wrap: wrap;
+    margin:0 5.7rem;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.item-cart{
+    display: flex;
+    border: 1px solid rgb(206, 206, 206);
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    width: 17rem;
+    padding: .5rem;
+}
+.item-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.item-fav img{
+    width: 6rem;
+    height: 7rem;
+    margin-right: 1rem;
+}
+
+.button{
+    background-color: none;
+}
+
+.item-details p,
+.item-details span {
+  margin: 0;
+  font-weight: 700;
+}
+
+.item-details{
+    display: flex;
+    margin: 0;
+}
+
+.item-details span{
+    font-weight: 700;
+    color:red !important;
+    font-size: 1.4rem;
+}
+
+.buttonAdd, 
+.buttonDelete{
+    text-decoration: none;
+    outline: none;
+    display: flex;
+    font-size: .8rem;
+    margin: 0; padding: .3rem 0;
+    line-height: 1;
+    color:rgb(0, 174, 255)
+}
+
+.buttonIconCart{
+    display: flex;
+    justify-content: flex-end !important;
+}
+
+.btns-group{
+    display: flex;
+    margin: 0; padding-right: 1rem;
+}
+
+.buttonIconFav{
+    color: rgb(226, 3, 3) !important;
+    margin-left: 1rem;
+}
+
+.buttonIconFav:hover{
+    color:rgb(255, 0, 0) !important;
+}
+
+.priceTotal{
+    color: #000;
+    font-weight: 600;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.priceTotal span{
+    font-weight: 900;
+    color:rgb(226, 3, 3);
+}
+
+.item-img img{
+    width: 4rem;
+    margin-right:1rem;
+    height: 5rem;
+}

@@ -2,7 +2,6 @@
 import '/src/assets/css/Home.css'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import Search from '/src/components/Search';
 import Form from 'react-bootstrap/Form';
 // import { getProduct } from '/src/data/data.jsx'
@@ -20,7 +19,7 @@ const Home = () => {
   // },[]);
 
   return (
-    <div>
+    <div style={{"margin": "2rem"}}>
     <div className='container-corpo'>
       <Form inline className='container-search'>
         <Row>

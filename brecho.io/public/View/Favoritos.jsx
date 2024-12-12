@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "/src/assets/css/favorits.css";
 import Button from "react-bootstrap/Button";
 
@@ -7,18 +7,11 @@ const Favoritos = () => {
     { id: 1, name: "Shampoo", price: 15.99, img: "/src/assets/1c6ec7684014f75f0abd3c04ef5b3fe4b2660c6e2ef2fa0017ff44cdf2d52d28.png" },
     { id: 2, name: "Condicionador", price: 18.99, img: "/src/assets/b75fb1ff0cb4d6a15b1c351bee6413ba3704a0512dff98faf739638d85fe3983.png" },
   ]); // Lista inicial de produtos
-  const [calcTotal, setCalcTotal] = useState(0);
 
   // Função para remover produto
   const deleteProduct = (id) => {
     setFavoritos((prevFavoritos) => prevFavoritos.filter((item) => item.id !== id));
   };
-
-  // Calcula o total
-  useEffect(() => {
-    const total = favoritos.reduce((sum, item) => sum + item.price, 0);
-    setCalcTotal(total);
-  }, [favoritos]); // Recalcula sempre que "favoritos" mudar
 
   return (
     <div>
@@ -36,7 +29,7 @@ const Favoritos = () => {
                   <span>{item.price.toFixed(2)}</span>
                   <div className="btns-group">
                     <Button variant="link" className="buttonAdd">
-                      Adicionar à lista
+                      Adicionar ao Carrinho
                     </Button>
                     <Button variant="link" className="buttonIconFav"  onClick={() => deleteProduct(item.id)}>
                       <i className="fa-solid fa-heart"></i>
@@ -47,11 +40,6 @@ const Favoritos = () => {
             ))}
           </div>
         </div>
-      </div>
-      <div className="priceTotal">
-        <p>
-          Preço Total: <span>R${calcTotal.toFixed(2)}</span>
-        </p>
       </div>
     </div>
   );

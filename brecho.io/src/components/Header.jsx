@@ -9,8 +9,8 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 const Header = () => {
 
-    const [numCart, setCartNum] = useState(0);
-    const [numFav, setFavNum] = useState(0);
+    // const [numCart, setCartNum] = useState(0);
+    // const [numFav, setFavNum] = useState(0);
 
     // const [login, setLogin] = useState("");
 
@@ -76,18 +76,18 @@ const Header = () => {
                             <Nav.Item className='d-flex link'>
                                 <p><i className="fa-solid fa-cart-shopping"></i></p>
                                 <Link to="/carrinho" className="linkText">
-                                    Carrinho: <span>{numCart}</span>
+                                    Carrinho: <span>{}</span>
                                 </Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex link'>
                                 <p><i className="fa-solid fa-heart"></i></p>
                                 <Link to="/favoritos" className="linkText">
-                                    Fav: <span>{numFav}</span>
+                                    Fav: <span>{}</span>
                                 </Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex link'>
-                                <p><i className="fa-solid fa-user"></i></p>
-                                <Link to="/perfil" className="linkText">
+                                <Link to="/login" className="linkText">
+                                    <p><i className="fa-solid fa-user"></i></p>
                                 </Link>
                             </Nav.Item>
                         </Nav>

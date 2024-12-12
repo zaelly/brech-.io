@@ -4,8 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../public/View/Home.jsx';
 import Favoritos from '../public/View/Favoritos.jsx';
 import Carrinho from '../public/View/Carrinho.jsx';
-import Login from '../public/View/Login.jsx';
-import Footer from './components/Footer.jsx'
+import Footer from './components/Footer.jsx';
+import Login from '/src/components/Login.jsx';
+import Cadastro from '/src/components/Cadastro.jsx';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/favoritos" element={<Favoritos />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
       <Footer />
     </>

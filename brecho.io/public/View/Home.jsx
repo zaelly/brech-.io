@@ -2,8 +2,6 @@
 import '/src/assets/css/Home.css'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Search from '/src/components/Search';
-import Form from 'react-bootstrap/Form';
 // import { getProduct } from '/src/data/data.jsx'
 
 const Home = () => {
@@ -21,13 +19,6 @@ const Home = () => {
   return (
     <div style={{"margin": "2rem"}}>
     <div className='container-corpo'>
-      <Form inline className='container-search'>
-        <Row>
-          <Col>
-            <Search />
-          </Col>
-        </Row>
-      </Form>
       <div className='container-categorias'>
         {/* Categorias */}
         <div className="categorias">
@@ -61,4 +52,4 @@ const Home = () => {
 );
 };
 
-export default Home
+export default Home

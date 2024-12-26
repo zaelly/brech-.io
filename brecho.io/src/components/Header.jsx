@@ -2,7 +2,11 @@ import {Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import '../assets/css/header.css'
+import Search from '/src/components/Search.jsx';
+import Form from 'react-bootstrap/Form';
 import tallHatIcon from '../assets/Tall Hat.png';
 // import { getUsers } from '../data/data.jsx'
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -59,14 +63,22 @@ const Header = () => {
                         Home
                     </Link>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${widthWindow}`}/>
+                <Navbar.Toggle aria-controls={offcanvasNavbar-expand-${widthWindow}}/>
+
+                <Form inline className='container-search'>
+                    <Row>
+                        <Col>
+                            <Search />
+                        </Col>
+                    </Row>
+                </Form>
                 <Navbar.Offcanvas
-                    id={`offcanvasNavbar-expand-lg`}
-                    aria-labelledby={`offcanvasNavbarLabel-expand-${widthWindow}`}
+                    id={offcanvasNavbar-expand-lg}
+                    aria-labelledby={offcanvasNavbarLabel-expand-${widthWindow}}
                     placement="end"
                 >
                     <Offcanvas.Header closeButton>
-                    <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${widthWindow}`}>
+                    <Offcanvas.Title id={offcanvasNavbarLabel-expand-${widthWindow}}>
                         Menu
                     </Offcanvas.Title>
                     </Offcanvas.Header>
@@ -100,4 +112,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header

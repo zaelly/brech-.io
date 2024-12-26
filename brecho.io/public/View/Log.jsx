@@ -1,16 +1,55 @@
-import '/src/assets/css/log.css'
-import Link from 'react-router-dom'
+// import { useEffect, useState } from 'react';
+import '/src/assets/css/Home.css'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+// import { getProduct } from '/src/data/data.jsx'
 
-const Log = () => {
+const Home = () => {
+  // const [product, setProducts] = useState([]); 
+  
+  //   useEffect(() => {
+  //     const fetchProducts = async () => {  
+  //       const products = await getProduct();
+  //       setProducts(products);
+  //     };
+  
+  //     fetchProducts(); 
+  // },[]);
+
   return (
-    <>
-  {/* login */}
-      <div className="container-corpo">      
-        <Link style={{"display" : "block"}} to={"/login"}></Link>
-        <Link style={{"display" : "none"}} to={"/cadastro"}></Link>
+    <div style={{"margin": "2rem"}}>
+    <div className='container-corpo'>
+      <div className='container-categorias'>
+        {/* Categorias */}
+        <div className="categorias">
+          <h2>Categorias</h2>
+          <Row className="w-100">
+            <Col className="col" lg={3}><a href="">Acessórios de Moda</a></Col>
+            <Col className="col" lg={3}><a href="">Roupas Femininas</a></Col>
+            <Col className="col" lg={3}><a href="">Sapatos Masculinos</a></Col>
+            <Col className="col" lg={3}><a href="">Roupas Masculinas</a></Col>
+            <Col className="col" lg={3}><a href="">Sapatos Femininos</a></Col>
+            <Col className="col" lg={3}><a href="">Moda Infantil</a></Col>
+            <Col className="col" lg={3}><a href="">Mãe e Bebê</a></Col>
+            <Col className="col" lg={3}><a href="">Bolsas Femininas</a></Col>
+          </Row>
+        </div>
       </div>
-    </>
-  )
-}
+      <div className="container-menu">
+        <h3>Você vai amar</h3>
+        <div className="container-products">
+          {/* {product.map((item) => (
+            <div key={item.id} className="product">
+              <img src={item.image} alt={item.name} />
+              <h4>{item.name}</h4>
+              <h4>{item.price}</h4>
+            </div>
+           ))} */}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+};
 
-export default Log
+export default Home
